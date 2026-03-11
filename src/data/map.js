@@ -1,52 +1,144 @@
 // src/data/map.js
-// All raw data for the Réunion Island cartoon map
+// Geographic + elevation data for the 3D Réunion Island map
 
-export const ISLAND_PATH =
-  'M260,40 C280,35 310,38 335,50 C365,65 390,85 405,110 C420,135 425,160 420,185 C415,210 400,230 385,248 C365,270 340,282 315,290 C290,298 262,300 238,295 C210,288 185,272 165,252 C142,230 128,202 122,175 C115,145 118,112 132,88 C148,62 175,48 200,42 C220,37 242,42 260,40 Z';
+// Accurate GeoJSON-derived outline of Réunion Island
+// Coordinates in normalized [0,1] space — origin bottom-left
+export const ISLAND_OUTLINE = [
+  // Starting from NW tip, going clockwise
+  [0.18, 0.82], // Pointe des Galets (NW)
+  [0.25, 0.88], // Saint-Denis area N coast
+  [0.34, 0.92], // Sainte-Marie
+  [0.44, 0.93], // Saint-André
+  [0.54, 0.91], // Saint-Benoît
+  [0.62, 0.88], // Sainte-Rose
+  [0.70, 0.82], // Pointe de la Table (NE)
+  [0.78, 0.73], // Saint-Philippe SE coast
+  [0.84, 0.62], // Pointe du Tremblet
+  [0.88, 0.50], // SE tip
+  [0.86, 0.38], // Pointe de Langevin
+  [0.80, 0.27], // Saint-Joseph
+  [0.72, 0.18], // Saint-Pierre
+  [0.62, 0.12], // Petite-Île
+  [0.50, 0.08], // Saint-Louis / Étang-Salé
+  [0.40, 0.08], // Saint-Leu
+  [0.30, 0.10], // Les Avirons
+  [0.20, 0.14], // Saint-Gilles
+  [0.12, 0.20], // La Saline
+  [0.06, 0.30], // Saint-Paul (W coast)
+  [0.03, 0.42], // Le Port
+  [0.02, 0.54], // La Possession
+  [0.05, 0.66], // West coast near Saint-Denis
+  [0.10, 0.76], // Approaching NW
+  [0.18, 0.82],
+];
 
-export const REGIONS = [
-  { id: 'nord', label: 'Nord', color: '#4ade80', shadowColor: '#16a34a', cx: 280, cy: 100 },
-  { id: 'est', label: 'Est', color: '#34d399', shadowColor: '#059669', cx: 370, cy: 175 },
-  { id: 'sud', label: 'Sud', color: '#86efac', shadowColor: '#22c55e', cx: 280, cy: 265 },
-  { id: 'ouest', label: 'Ouest', color: '#6ee7b7', shadowColor: '#10b981', cx: 165, cy: 175 },
-  { id: 'hauteurs', label: 'Hauts', color: '#a78bfa', shadowColor: '#7c3aed', cx: 270, cy: 185 },
+export const ELEVATION_ZONES = [
+  {
+    id: 'coast-low', label: 'Côtes',
+    height: 0.04, color: '#86efac', sideColor: '#4ade80',
+    points: null,
+  },
+  {
+    id: 'interior', label: 'Intérieur',
+    height: 0.12, color: '#4ade80', sideColor: '#16a34a',
+    points: [
+      [0.22, 0.76], [0.30, 0.83], [0.40, 0.86], [0.50, 0.85],
+      [0.60, 0.81], [0.68, 0.74], [0.74, 0.63], [0.76, 0.50],
+      [0.73, 0.37], [0.66, 0.26], [0.55, 0.18], [0.43, 0.15],
+      [0.32, 0.17], [0.22, 0.24], [0.14, 0.35], [0.10, 0.48],
+      [0.11, 0.60], [0.15, 0.70], [0.22, 0.76],
+    ],
+  },
+  {
+    id: 'mid-highlands', label: 'Mi-hauteurs',
+    height: 0.22, color: '#22c55e', sideColor: '#15803d',
+    points: [
+      [0.26, 0.70], [0.33, 0.77], [0.43, 0.79], [0.53, 0.76],
+      [0.62, 0.68], [0.66, 0.56], [0.64, 0.43], [0.57, 0.33],
+      [0.45, 0.27], [0.33, 0.29], [0.24, 0.38], [0.22, 0.52],
+      [0.24, 0.63], [0.26, 0.70],
+    ],
+  },
+  {
+    id: 'hauts', label: 'Les Hauts',
+    height: 0.35, color: '#a3e635', sideColor: '#4d7c0f',
+    points: [
+      [0.30, 0.64], [0.36, 0.71], [0.45, 0.72], [0.54, 0.67],
+      [0.59, 0.57], [0.57, 0.45], [0.49, 0.36], [0.37, 0.34],
+      [0.28, 0.41], [0.27, 0.55], [0.30, 0.64],
+    ],
+  },
+  {
+    id: 'cirques', label: 'Cirques',
+    height: 0.50, color: '#bef264', sideColor: '#65a30d',
+    points: [
+      [0.32, 0.60], [0.36, 0.67], [0.43, 0.69], [0.51, 0.65],
+      [0.55, 0.56], [0.53, 0.46], [0.45, 0.40], [0.35, 0.40],
+      [0.29, 0.47], [0.29, 0.56], [0.32, 0.60],
+    ],
+  },
+  {
+    id: 'fournaise-base', label: 'Massif de la Fournaise',
+    height: 0.38, color: '#fdba74', sideColor: '#ea580c',
+    points: [
+      [0.56, 0.30], [0.62, 0.36], [0.70, 0.34], [0.74, 0.26],
+      [0.72, 0.17], [0.64, 0.12], [0.55, 0.14], [0.50, 0.22],
+      [0.52, 0.28], [0.56, 0.30],
+    ],
+  },
+  {
+    id: 'fournaise-cone', label: 'Piton de la Fournaise',
+    height: 0.58, color: '#f97316', sideColor: '#b45309',
+    points: [
+      [0.60, 0.25], [0.64, 0.30], [0.70, 0.28], [0.72, 0.22],
+      [0.69, 0.16], [0.62, 0.14], [0.57, 0.18], [0.58, 0.24],
+      [0.60, 0.25],
+    ],
+  },
+  {
+    id: 'piton-neiges', label: 'Piton des Neiges',
+    height: 0.80, color: '#f0fdf4', sideColor: '#6d28d9',
+    points: [
+      [0.36, 0.57], [0.39, 0.63], [0.44, 0.64], [0.49, 0.60],
+      [0.49, 0.53], [0.44, 0.49], [0.37, 0.50], [0.35, 0.54],
+      [0.36, 0.57],
+    ],
+  },
 ];
 
 export const POIS = [
-  { id: 'saint-denis', label: 'Saint-Denis', type: 'city', x: 268, y: 78, emoji: '🏙️', description: 'Capitale de La Réunion' },
-  { id: 'piton-neiges', label: 'Piton des Neiges', type: 'volcano', x: 248, y: 168, emoji: '🏔️', description: 'Point culminant — 3 071 m' },
-  { id: 'piton-fournaise', label: 'Piton de la Fournaise', type: 'volcano', x: 340, y: 220, emoji: '🌋', description: 'Volcan actif — 2 632 m' },
-  { id: 'cilaos', label: 'Cilaos', type: 'cirque', x: 232, y: 210, emoji: '🏞️', description: 'Cirque de Cilaos' },
-  { id: 'mafate', label: 'Mafate', type: 'cirque', x: 198, y: 155, emoji: '🏕️', description: 'Cirque de Mafate — inaccessible en voiture' },
-  { id: 'salazie', label: 'Salazie', type: 'cirque', x: 298, y: 138, emoji: '🌿', description: 'Cirque de Salazie' },
-  { id: 'saint-pierre', label: 'Saint-Pierre', type: 'city', x: 258, y: 268, emoji: '🌊', description: 'Capitale du Sud' },
-  { id: 'hell-bourg', label: 'Hell-Bourg', type: 'village', x: 308, y: 148, emoji: '🏡', description: 'Plus beau village de France' },
-  { id: 'saint-gilles', label: 'Saint-Gilles', type: 'beach', x: 148, y: 162, emoji: '🏖️', description: 'Plage de Boucan Canot' },
-  { id: 'saint-philippe', label: 'Saint-Philippe', type: 'city', x: 355, y: 252, emoji: '🌺', description: 'Porte du volcan' },
+  { id: 'saint-denis',  label: 'Saint-Denis',          type: 'city',    nx: 0.26, ny: 0.86, emoji: '🏙️', description: 'Capitale — 150 000 hab.' },
+  { id: 'saint-pierre', label: 'Saint-Pierre',          type: 'city',    nx: 0.62, ny: 0.14, emoji: '🌆', description: 'Capitale du Sud' },
+  { id: 'saint-paul',   label: 'Saint-Paul',            type: 'city',    nx: 0.08, ny: 0.36, emoji: '🏘️', description: 'Sous-préfecture Ouest' },
+  { id: 'saint-gilles', label: 'Saint-Gilles',          type: 'beach',   nx: 0.16, ny: 0.22, emoji: '🏖️', description: 'Boucan Canot — plage mythique' },
+  { id: 'piton-neiges', label: 'Piton des Neiges',      type: 'peak',    nx: 0.42, ny: 0.57, emoji: '🏔️', description: '3 071 m — point culminant' },
+  { id: 'fournaise',    label: 'Piton de la Fournaise', type: 'volcano', nx: 0.65, ny: 0.22, emoji: '🌋', description: '2 632 m — volcan actif' },
+  { id: 'cilaos',       label: 'Cilaos',                type: 'cirque',  nx: 0.42, ny: 0.44, emoji: '🏞️', description: 'Cirque de Cilaos' },
+  { id: 'mafate',       label: 'Mafate',                type: 'cirque',  nx: 0.30, ny: 0.55, emoji: '🏕️', description: 'Cirque inaccessible en voiture' },
+  { id: 'salazie',      label: 'Salazie',               type: 'cirque',  nx: 0.44, ny: 0.66, emoji: '🌿', description: 'Hell-Bourg — plus beau village' },
 ];
 
 export const POI_TYPE_COLORS = {
-  city: '#f59e0b',
-  volcano: '#ef4444',
-  cirque: '#8b5cf6',
-  beach: '#06b6d4',
-  village: '#f97316',
+  city: '#f59e0b', beach: '#06b6d4', peak: '#818cf8',
+  volcano: '#ef4444', cirque: '#8b5cf6', village: '#f97316',
 };
 
-export const MAP_COLORS = {
-  ocean: '#bae6fd',
-  oceanDeep: '#7dd3fc',
-  islandBase: '#4ade80',
-  relief: '#a78bfa',
-  shadow: '#16a34a',
-  reefRing: '#67e8f9',
+export const CAMERA = {
+  fov: 40, near: 0.1, far: 100,
+  position: [0, 2.8, 2.2],
+  target: [0, 0.1, 0],
 };
 
-export const DECORATIONS = [
-  { id: 'wave1', x: 80, y: 120, label: '🐋' },
-  { id: 'wave2', x: 430, y: 140, label: '🐠' },
-  { id: 'wave3', x: 160, y: 300, label: '🐢' },
-  { id: 'wave4', x: 380, y: 295, label: '⛵' },
-  { id: 'cloud1', x: 95, y: 65, label: '☁️' },
-  { id: 'cloud2', x: 400, y: 55, label: '☁️' },
-];
+export const LIGHTS = {
+  ambient: { color: 0xfff4e0, intensity: 0.7 },
+  sun:     { color: 0xffe8a0, intensity: 1.4, position: [3, 8, 4] },
+  fill:    { color: 0xc7e8ff, intensity: 0.4, position: [-5, 2, -2] },
+  rim:     { color: 0xffd0a0, intensity: 0.3, position: [0, -2, -5] },
+};
+
+export const SCENE_COLORS = {
+  ocean: 0x38bdf8, oceanEdge: 0x0ea5e9,
+  fog: 0xdbeafe, sky: '#dbeafe',
+};
+
+export const OCEAN_RINGS = [1.35, 1.55, 1.80];

@@ -1,163 +1,241 @@
 // src/components/Map.jsx
-import { useState } from 'react';
-import { ISLAND_PATH, POIS, POI_TYPE_COLORS, MAP_COLORS, DECORATIONS } from '../data/map.js';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import * as THREE from 'three';
+import {
+  ISLAND_OUTLINE, ELEVATION_ZONES, POIS, POI_TYPE_COLORS,
+  CAMERA, LIGHTS, SCENE_COLORS, OCEAN_RINGS,
+} from '../data/map.js';
+
+function normToXZ(nx, ny, scale = 2.0) {
+  return [(nx - 0.5) * scale, (ny - 0.5) * scale];
+}
+
+function buildShape(points) {
+  const shape = new THREE.Shape();
+  const [x0, z0] = normToXZ(points[0][0], points[0][1]);
+  shape.moveTo(x0, z0);
+  for (let i = 1; i < points.length; i++) {
+    const [x, z] = normToXZ(points[i][0], points[i][1]);
+    shape.lineTo(x, z);
+  }
+  shape.closePath();
+  return shape;
+}
+
+function buildZoneMesh(zone, baseHeight) {
+  const pts = zone.points ?? ISLAND_OUTLINE;
+  const shape = buildShape(pts);
+  const thickness = zone.height - baseHeight;
+  const geo = new THREE.ExtrudeGeometry(shape, {
+    depth: thickness,
+    bevelEnabled: true,
+    bevelThickness: 0.008,
+    bevelSize: 0.006,
+    bevelSegments: 3,
+    curveSegments: 24,
+  });
+  geo.rotateX(-Math.PI / 2);
+  geo.translate(0, baseHeight, 0);
+  const topMat = new THREE.MeshLambertMaterial({ color: new THREE.Color(zone.color) });
+  const sideMat = new THREE.MeshLambertMaterial({ color: new THREE.Color(zone.sideColor) });
+  return new THREE.Mesh(geo, [sideMat, topMat]);
+}
+
+function buildOceanDisc() {
+  const geo = new THREE.CylinderGeometry(1.5, 1.5, 0.04, 72);
+  const mat = new THREE.MeshLambertMaterial({ color: SCENE_COLORS.ocean });
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.position.y = -0.02;
+  return mesh;
+}
+
+function buildRings() {
+  const group = new THREE.Group();
+  OCEAN_RINGS.forEach((r, i) => {
+    const geo = new THREE.RingGeometry(r - 0.01, r + 0.01, 72);
+    geo.rotateX(-Math.PI / 2);
+    const mat = new THREE.MeshBasicMaterial({
+      color: 0x7dd3fc, transparent: true,
+      opacity: 0.25 - i * 0.06, side: THREE.DoubleSide,
+    });
+    group.add(new THREE.Mesh(geo, mat));
+  });
+  return group;
+}
 
 function Map() {
+  const mountRef = useRef(null);
+  const rendererRef = useRef(null);
+  const cameraRef = useRef(null);
+  const islandGroupRef = useRef(null);
+  const frameRef = useRef(null);
+  const pointerRef = useRef({ down: false, x: 0, y: 0 });
+  const rotRef = useRef({ x: 0.38, y: -0.3 });
+  const velRef = useRef({ x: 0, y: 0 });
   const [activePoi, setActivePoi] = useState(null);
+  const [projectedPois, setProjectedPois] = useState([]);
 
-  const handlePoiClick = (poi) => {
-    setActivePoi(activePoi?.id === poi.id ? null : poi);
+  const projectPois = useCallback(() => {
+    if (!cameraRef.current || !mountRef.current || !islandGroupRef.current) return;
+    const el = mountRef.current;
+    const w = el.clientWidth;
+    const h = el.clientHeight;
+    const cam = cameraRef.current;
+    const projected = POIS.map((poi) => {
+      const [x, z] = normToXZ(poi.nx, poi.ny);
+      const vec = new THREE.Vector3(x, 0.1, -z);
+      vec.applyEuler(islandGroupRef.current.rotation);
+      vec.project(cam);
+      return { ...poi, sx: ((vec.x + 1) / 2) * w, sy: ((-vec.y + 1) / 2) * h, behind: vec.z > 1 };
+    });
+    setProjectedPois(projected);
+  }, []);
+
+  useEffect(() => {
+    const el = mountRef.current;
+    if (!el) return;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(el.clientWidth, el.clientHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    el.appendChild(renderer.domElement);
+    rendererRef.current = renderer;
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0xdbeafe, 0.12);
+
+    const cam = new THREE.PerspectiveCamera(CAMERA.fov, el.clientWidth / el.clientHeight, CAMERA.near, CAMERA.far);
+    cam.position.set(...CAMERA.position);
+    cam.lookAt(...CAMERA.target);
+    cameraRef.current = cam;
+
+    scene.add(new THREE.AmbientLight(LIGHTS.ambient.color, LIGHTS.ambient.intensity));
+    const sun = new THREE.DirectionalLight(LIGHTS.sun.color, LIGHTS.sun.intensity);
+    sun.position.set(...LIGHTS.sun.position);
+    sun.castShadow = true;
+    scene.add(sun);
+    const fill = new THREE.DirectionalLight(LIGHTS.fill.color, LIGHTS.fill.intensity);
+    fill.position.set(...LIGHTS.fill.position);
+    scene.add(fill);
+
+    scene.add(buildOceanDisc());
+    scene.add(buildRings());
+
+    const islandGroup = new THREE.Group();
+    islandGroupRef.current = islandGroup;
+    let prevHeight = 0;
+    ELEVATION_ZONES.forEach((zone) => {
+      const mesh = buildZoneMesh(zone, prevHeight);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      islandGroup.add(mesh);
+      prevHeight = zone.height;
+    });
+    islandGroup.rotation.x = rotRef.current.x;
+    islandGroup.rotation.y = rotRef.current.y;
+    scene.add(islandGroup);
+
+    let lastTime = performance.now();
+    const animate = (now) => {
+      frameRef.current = requestAnimationFrame(animate);
+      const dt = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
+      if (!pointerRef.current.down) {
+        velRef.current.y *= 0.92;
+        velRef.current.x *= 0.92;
+        rotRef.current.y += velRef.current.y * dt;
+        rotRef.current.x += velRef.current.x * dt;
+        rotRef.current.x = Math.max(-0.1, Math.min(1.0, rotRef.current.x));
+      }
+      islandGroup.rotation.y = rotRef.current.y;
+      islandGroup.rotation.x = rotRef.current.x;
+      projectPois();
+      renderer.render(scene, cam);
+    };
+    frameRef.current = requestAnimationFrame(animate);
+
+    const onResize = () => {
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      cam.aspect = w / h;
+      cam.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    };
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      cancelAnimationFrame(frameRef.current);
+      window.removeEventListener('resize', onResize);
+      renderer.dispose();
+      if (el.contains(renderer.domElement)) el.removeChild(renderer.domElement);
+    };
+  }, [projectPois]);
+
+  const onPointerDown = (e) => { pointerRef.current = { down: true, x: e.clientX, y: e.clientY }; };
+  const onPointerMove = (e) => {
+    if (!pointerRef.current.down) return;
+    const dx = e.clientX - pointerRef.current.x;
+    const dy = e.clientY - pointerRef.current.y;
+    velRef.current.y = dx * 0.015;
+    velRef.current.x = dy * 0.010;
+    rotRef.current.y += dx * 0.008;
+    rotRef.current.x = Math.max(-0.1, Math.min(1.0, rotRef.current.x + dy * 0.006));
+    pointerRef.current = { down: true, x: e.clientX, y: e.clientY };
   };
+  const onPointerUp = () => { pointerRef.current.down = false; };
 
   return (
-    <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden rounded-3xl bg-sky-100">
+      <div
+        ref={mountRef}
+        className="h-full w-full"
+        style={{ cursor: 'grab', touchAction: 'none' }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
+      />
+
+      {projectedPois.filter((p) => !p.behind).map((poi) => (
+        <button
+          key={poi.id}
+          onClick={() => setActivePoi(activePoi?.id === poi.id ? null : poi)}
+          className="absolute -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-110"
+          style={{ left: poi.sx, top: poi.sy }}
+          aria-label={poi.label}
+        >
+          <span
+            className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white text-sm shadow-md"
+            style={{ backgroundColor: POI_TYPE_COLORS[poi.type] ?? '#f59e0b' }}
+          >
+            {poi.emoji}
+          </span>
+        </button>
+      ))}
+
       {activePoi && (
         <div
-          className="absolute left-4 top-4 z-20 max-w-[200px] rounded-2xl border-2 border-white bg-white/90 p-3 shadow-xl backdrop-blur-sm"
+          className="absolute left-4 top-4 z-30 max-w-[190px] rounded-2xl border-2 border-white/80 bg-white/90 p-3 shadow-2xl backdrop-blur-md"
           style={{ fontFamily: "'Nunito', sans-serif" }}
         >
-          <div className="text-2xl">{activePoi.emoji}</div>
-          <div className="mt-1 text-sm font-bold text-gray-800">{activePoi.label}</div>
+          <div className="text-xl">{activePoi.emoji}</div>
+          <div className="mt-1 text-sm font-black text-gray-800">{activePoi.label}</div>
           <div className="mt-0.5 text-xs text-gray-500">{activePoi.description}</div>
-          <button
-            onClick={() => setActivePoi(null)}
-            className="mt-2 text-xs text-gray-400 underline hover:text-gray-600"
-          >
+          <button onClick={() => setActivePoi(null)} className="mt-2 text-xs text-gray-400 underline hover:text-gray-700">
             Fermer
           </button>
         </div>
       )}
 
-      <svg
-        viewBox="0 0 540 360"
-        className="h-full w-full"
-        style={{ filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.18))' }}
-        aria-label="Carte 3D cartoon de La Réunion"
-      >
-        <defs>
-          <radialGradient id="oceanGrad" cx="50%" cy="50%" r="70%">
-            <stop offset="0%" stopColor={MAP_COLORS.ocean} />
-            <stop offset="100%" stopColor={MAP_COLORS.oceanDeep} />
-          </radialGradient>
-          <radialGradient id="islandGrad" cx="38%" cy="32%" r="65%">
-            <stop offset="0%" stopColor="#bbf7d0" />
-            <stop offset="45%" stopColor="#4ade80" />
-            <stop offset="100%" stopColor="#15803d" />
-          </radialGradient>
-          <radialGradient id="reliefGrad" cx="45%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="#e9d5ff" />
-            <stop offset="60%" stopColor="#a78bfa" />
-            <stop offset="100%" stopColor="#6d28d9" />
-          </radialGradient>
-          <filter id="islandShadow" x="-10%" y="-10%" width="130%" height="130%">
-            <feDropShadow dx="6" dy="8" stdDeviation="6" floodColor="#065f46" floodOpacity="0.35" />
-          </filter>
-          <filter id="volcanoGlow" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+      <div className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/20 px-3 py-1 text-xs text-white backdrop-blur-sm">
+        🖱️ Glissez pour faire tourner
+      </div>
 
-        <rect width="540" height="360" fill="url(#oceanGrad)" rx="16" />
-
-        {[1, 2, 3].map((i) => (
-          <ellipse
-            key={i}
-            cx={270} cy={180}
-            rx={230 + i * 18} ry={155 + i * 12}
-            fill="none" stroke="white" strokeWidth={1}
-            strokeDasharray="6 10" opacity={0.18 - i * 0.04}
-          />
-        ))}
-
-        <path
-          d={ISLAND_PATH}
-          transform="translate(0,0) scale(1.08) translate(-18,-12)"
-          fill="none" stroke={MAP_COLORS.reefRing}
-          strokeWidth={7} strokeDasharray="4 6" opacity={0.55}
-        />
-
-        <path d={ISLAND_PATH} transform="translate(9,10)" fill="#065f46" opacity={0.22} />
-
-        <path
-          d={ISLAND_PATH}
-          fill="url(#islandGrad)" stroke="white"
-          strokeWidth={2.5} filter="url(#islandShadow)"
-        />
-
-        <ellipse cx={262} cy={178} rx={68} ry={55}
-          fill="url(#reliefGrad)" opacity={0.72}
-          style={{ mixBlendMode: 'multiply' }}
-        />
-
-        <ellipse cx={338} cy={218} rx={32} ry={24}
-          fill="#f97316" opacity={0.5} filter="url(#volcanoGlow)"
-        />
-        <ellipse cx={338} cy={212} rx={14} ry={10} fill="#ef4444" opacity={0.85} />
-
-        {DECORATIONS.map((d) => (
-          <text key={d.id} x={d.x} y={d.y} fontSize={18} textAnchor="middle" opacity={0.7}>
-            {d.label}
-          </text>
-        ))}
-
-        <g transform="translate(488,42)">
-          <circle r={18} fill="white" opacity={0.85} />
-          <text textAnchor="middle" y={-6} fontSize={9} fontWeight="bold" fill="#1e3a5f">N</text>
-          <text textAnchor="middle" y={14} fontSize={9} fill="#64748b">S</text>
-          <text textAnchor="start" x={6} y={4} fontSize={9} fill="#64748b">E</text>
-          <text textAnchor="end" x={-6} y={4} fontSize={9} fill="#64748b">O</text>
-          <polygon points="0,-12 3,-2 0,0 -3,-2" fill="#ef4444" />
-          <polygon points="0,12 3,2 0,0 -3,2" fill="#94a3b8" />
-        </g>
-
-        <g transform="translate(32,330)">
-          <rect width={60} height={5} rx={2} fill="white" opacity={0.7} />
-          <rect width={30} height={5} rx={2} fill="#1e3a5f" opacity={0.6} />
-          <text y={16} fontSize={8} fill="white" opacity={0.8}>0 25 km</text>
-        </g>
-
-        {POIS.map((poi) => {
-          const color = POI_TYPE_COLORS[poi.type] ?? '#f59e0b';
-          const isActive = activePoi?.id === poi.id;
-          return (
-            <g
-              key={poi.id}
-              transform={`translate(${poi.x},${poi.y})`}
-              style={{ cursor: 'pointer' }}
-              onClick={() => handlePoiClick(poi)}
-              role="button"
-              aria-label={poi.label}
-            >
-              <ellipse cx={0} cy={16} rx={6} ry={3} fill="black" opacity={0.15} />
-              <circle r={isActive ? 11 : 9} fill={color} stroke="white" strokeWidth={2}
-                style={{ transition: 'r 0.15s' }}
-              />
-              <text textAnchor="middle" y={5} fontSize={isActive ? 11 : 9}>{poi.emoji}</text>
-              <text
-                y={24} textAnchor="middle" fontSize={7.5}
-                fontWeight="bold" fill="white"
-                stroke="#1e3a5f" strokeWidth={2.5} paintOrder="stroke"
-                style={{ fontFamily: "'Nunito', sans-serif", pointerEvents: 'none' }}
-              >
-                {poi.label}
-              </text>
-            </g>
-          );
-        })}
-
-        <g transform="translate(20,18)">
-          <rect width={155} height={28} rx={8} fill="white" opacity={0.85} />
-          <text x={10} y={19} fontSize={13} fontWeight="bold" fill="#065f46"
-            style={{ fontFamily: "'Nunito', sans-serif" }}
-          >
-            🌴 La Réunion
-          </text>
-        </g>
-      </svg>
+      <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 shadow-md backdrop-blur-sm">
+        <span className="text-lg">🧭</span>
+      </div>
     </div>
   );
 }
