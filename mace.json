@@ -1,9 +1,219 @@
 {
-  "projet": {
+  "projet1": {
     "id": "0",
     "x": "12",
     "z": "20",
-    "nom": "chocolatine",
-    "description": "l'expression chocolatine provient des anglais lorsqu'il venaient en france et qu'il voulais prendre un pain au chocolat ils disaient chocalate in (pour désigner le chocolat dans le pain)"
+    "nom": "Grand-mère Kal",
+    "description": "Grand-mère Kal est un personnage légendaire de l'île de La Réunion. Vieille femme, elle apparaît aux allures de sorcière dans les contes réunionnais ainsi que dans la littérature d'enfance et de jeunesse réunionnaise. Personnage associé à l'esclavage, elle investit différentes légendes selon les lieux à la Réunion."
+  },
+  "projet2": {
+    "id": "1",
+    "x": "60",
+    "z": "35",
+    "nom": "La Buse",
+    "description": "Olivier Levasseur dit La Buse (ou La Bouche) est un pirate du XVIIIe siècle qui écuma l'océan Indien après avoir fait ses premières armes dans les Caraïbes, lors de la guerre de Succession d'Espagne. Il fut pendu sur l'île Bourbon en 1730 et laissa derrière lui moult légendes, mais la plus importante est celle du trésor caché quelque part dans l'océan Indien qui n'a toujours pas été trouvé. Cette légende a donné naissance à la célèbre oeuvre One-Piece"
+  },
+  "projet3": {
+    "id": "3",
+    "x": "70",
+    "z": "45",
+    "nom": "Piton de la Fournaise",
+    "description": "L'un des volcans les plus actifs au monde. Les visiteurs peuvent parcourir les sentiers de la Plaine des Sables et observer les coulées de lave lors des éruptions."
+  },
+  "projet4": {
+    "id": "4",
+    "x": "50",
+    "z": "55",
+    "nom": "Cirque de Mafate",
+    "description": "Cirque montagneux accessible uniquement à pied ou en hélicoptère. Il est célèbre pour ses paysages sauvages et ses petits villages appelés îlets."
+  },
+  "projet5": {
+    "id": "5",
+    "x": "65",
+    "z": "60",
+    "nom": "Cirque de Cilaos",
+    "description": "Cirque volcanique réputé pour ses randonnées, ses thermes et ses lentilles de Cilaos. Il est accessible par la célèbre route aux 400 virages."
+  },
+  "projet6": {
+    "id": "6",
+    "x": "72",
+    "z": "58",
+    "nom": "Cirque de Salazie",
+    "description": "Le plus verdoyant des trois cirques de La Réunion. On y trouve la célèbre cascade du Voile de la Mariée."
+  },
+  "projet7": {
+    "id": "7",
+    "x": "74",
+    "z": "62",
+    "nom": "Hell-Bourg",
+    "description": "Village classé parmi les plus beaux villages de France. On y trouve des maisons créoles colorées et des vestiges de l'époque thermale."
+  },
+  "projet8": {
+    "id": "8",
+    "x": "55",
+    "z": "25",
+    "nom": "Plage de l'Hermitage",
+    "description": "L'une des plages les plus populaires de l'île. Son lagon protégé par une barrière de corail est idéal pour la baignade et le snorkeling."
+  },
+  "projet9": {
+    "id": "9",
+    "x": "56",
+    "z": "22",
+    "nom": "Saint-Gilles-les-Bains",
+    "description": "Station balnéaire très fréquentée avec de nombreux restaurants, bars et activités nautiques."
+  },
+  "projet10": {
+    "id": "10",
+    "x": "75",
+    "z": "40",
+    "nom": "Grand Brûlé",
+    "description": "Zone impressionnante où les coulées de lave du Piton de la Fournaise rejoignent parfois l'océan."
+  },
+  "projet11": {
+    "id": "11",
+    "x": "68",
+    "z": "50",
+    "nom": "Piton des Neiges",
+    "description": "Le plus haut sommet de l'océan Indien avec 3070 mètres d'altitude. Une randonnée mythique pour admirer le lever du soleil."
+  },
+  "projet12": {
+    "id": "12",
+    "x": "45",
+    "z": "40",
+    "nom": "Cap Noir",
+    "description": "Point de vue spectaculaire sur le cirque de Mafate et ses montagnes abruptes."
+  },
+  "projet13": {
+    "id": "13",
+    "x": "46",
+    "z": "42",
+    "nom": "Roche Verre Bouteille",
+    "description": "Rocher emblématique visible depuis le Maïdo. Sa forme particulière rappelle une bouteille."
+  },
+  "projet14": {
+    "id": "14",
+    "x": "44",
+    "z": "38",
+    "nom": "Le Maïdo",
+    "description": "Belvédère spectaculaire offrant une vue incroyable sur le cirque de Mafate."
+  },
+  "projet15": {
+    "id": "15",
+    "x": "60",
+    "z": "20",
+    "nom": "Étang-Salé",
+    "description": "Plage volcanique au sable noir. Elle est connue pour son paysage unique et sa forêt côtière."
+  },
+  "projet16": {
+    "id": "16",
+    "x": "80",
+    "z": "48",
+    "nom": "Cascade Niagara",
+    "description": "Cascade populaire près de Sainte-Suzanne, souvent visitée pour des pique-niques."
+  },
+  "projet17": {
+    "id": "17",
+    "x": "85",
+    "z": "65",
+    "nom": "Cascade du Voile de la Mariée",
+    "description": "Une des cascades les plus célèbres de La Réunion, située dans le cirque de Salazie."
+  },
+  "projet18": {
+    "id": "18",
+    "x": "78",
+    "z": "52",
+    "nom": "Vanilleraie de Sainte-Suzanne",
+    "description": "Plantation où les visiteurs peuvent découvrir la culture de la vanille Bourbon."
+  },
+  "projet19": {
+    "id": "19",
+    "x": "58",
+    "z": "48",
+    "nom": "Forêt de Bélouve",
+    "description": "Forêt tropicale primaire célèbre pour ses fougères arborescentes et ses sentiers brumeux."
+  },
+  "projet20": {
+    "id": "20",
+    "x": "59",
+    "z": "49",
+    "nom": "Trou de Fer",
+    "description": "Canyon spectaculaire avec plusieurs cascades parmi les plus hautes de l'île."
+  },
+  "projet21": {
+    "id": "21",
+    "x": "62",
+    "z": "27",
+    "nom": "Saint-Leu",
+    "description": "Ville connue pour le parapente et le musée Stella Matutina consacré à l'histoire de la canne à sucre."
+  },
+  "projet22": {
+    "id": "22",
+    "x": "82",
+    "z": "44",
+    "nom": "Anse des Cascades",
+    "description": "Lieu paisible entouré de palmiers et de petites cascades se jetant dans l'océan."
+  },
+  "projet23": {
+    "id": "23",
+    "x": "70",
+    "z": "30",
+    "nom": "Plaine des Sables",
+    "description": "Paysage lunaire spectaculaire situé sur la route du volcan."
+  },
+  "projet24": {
+    "id": "24",
+    "x": "73",
+    "z": "33",
+    "nom": "Pas de Bellecombe",
+    "description": "Point de départ principal pour descendre dans l'enclos du volcan."
+  },
+  "projet25": {
+    "id": "25",
+    "x": "63",
+    "z": "58",
+    "nom": "Thermes de Cilaos",
+    "description": "Centre thermal réputé pour ses eaux riches en minéraux."
+  },
+  "projet26": {
+    "id": "26",
+    "x": "60",
+    "z": "28",
+    "nom": "Musée Stella Matutina",
+    "description": "Musée moderne racontant l'histoire de la canne à sucre et de l'île."
+  },
+  "projet27": {
+    "id": "27",
+    "x": "90",
+    "z": "50",
+    "nom": "Sainte-Rose",
+    "description": "Commune connue pour l'église Notre-Dame-des-Laves entourée par une coulée de lave."
+  },
+  "projet28": {
+    "id": "28",
+    "x": "91",
+    "z": "49",
+    "nom": "Notre-Dame-des-Laves",
+    "description": "Église célèbre pour avoir été miraculeusement épargnée par une coulée de lave en 1977."
+  },
+  "projet29": {
+    "id": "29",
+    "x": "52",
+    "z": "35",
+    "nom": "Saint-Denis",
+    "description": "Capitale de La Réunion avec de nombreux bâtiments coloniaux et musées."
+  },
+  "projet30": {
+    "id": "30",
+    "x": "57",
+    "z": "34",
+    "nom": "Jardin de l'État",
+    "description": "Jardin botanique historique de Saint-Denis avec de nombreuses espèces tropicales."
+  },
+  "projet31": {
+    "id": "2",
+    "x": "58",
+    "z": "30",
+    "nom": "Cimetière marin de Saint-Paul",
+    "description": "Situé près de la baie de Saint-Paul, ce cimetière historique abrite la tombe du pirate La Buse et de nombreuses figures importantes de l'histoire réunionnaise."
   }
 }
