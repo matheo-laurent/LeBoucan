@@ -1,1 +1,86 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-terre: #2d4a2d;
+  --color-mousse: #4a7a4a;
+  --color-feuille: #7ab87a;
+  --color-brume: #b8d4b8;
+  --color-sable: #f2ede4;
+  --color-ocre: #c47a3a;
+  --color-corail: #d95f3b;
+  --color-nuit: #1a2a1a;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #f2ede4;
+  color: #1a2a1a;
+}
+
+.evolution-flash {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: flash 0.7s ease-out;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0;
+  animation: sparkle 1s ease-out forwards;
+}
+
+.sparkle1 {
+  top: 10%;
+  left: 20%;
+}
+.sparkle2 {
+  top: 20%;
+  right: 15%;
+}
+.sparkle3 {
+  bottom: 20%;
+  left: 15%;
+}
+.sparkle4 {
+  bottom: 10%;
+  right: 20%;
+}
+.sparkle5 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.4) rotate(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5) rotate(180deg) translateY(-20px);
+    opacity: 0;
+  }
+}

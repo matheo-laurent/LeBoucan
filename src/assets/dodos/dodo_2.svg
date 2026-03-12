@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+
+  <!-- ombre -->
+  <ellipse cx="100" cy="165" rx="45" ry="12" fill="black" opacity="0.2"/>
+
+  <!-- coquille -->
+  <path d="M60 110 Q100 150 140 110 L140 140 Q100 165 60 140 Z"
+        fill="#f9fafb" stroke="#d1d5db" stroke-width="4"/>
+
+  <!-- tête -->
+  <circle cx="100" cy="85" r="22" fill="#c9b29e"/>
+
+  <!-- oeil -->
+  <circle cx="108" cy="82" r="3" fill="#222"/>
+
+  <!-- bec -->
+  <ellipse cx="118" cy="92" rx="10" ry="6" fill="#e0b04b"/>
+
+</svg>

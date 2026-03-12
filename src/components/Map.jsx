@@ -1,39 +1,37 @@
 // src/components/Map.jsx
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
 import { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import BadgeIcon from './BadgeIcon.jsx';
 
-// Réunion Island center + tight bounds
 const REUNION_CENTER = [-21.115, 55.536];
 const REUNION_BOUNDS = [
-  [-21.42, 55.2], // SW
-  [-20.81, 55.88], // NE
+  [-21.42, 55.2],
+  [-20.81, 55.88],
 ];
 
-// Build a custom emoji marker for each POI type
-function makeIcon(emoji, color) {
+function makeBadgeMarkerIcon(badge) {
   return L.divIcon({
     className: '',
     html: `
       <div style="
-        background:${color};
-        width:32px;height:32px;
-        border-radius:50% 50% 50% 0;
-        transform:rotate(-45deg);
-        border:2px solid white;
-        box-shadow:0 2px 6px rgba(0,0,0,0.25);
+        position:relative;width:44px;height:44px;border-radius:50%;
+        border:3px solid ${badge.earned ? '#fbbf24' : '#d1d5db'};
+        background:${badge.earned ? '#fffbeb' : '#f3f4f6'};
         display:flex;align-items:center;justify-content:center;
+        box-shadow:0 3px 8px rgba(0,0,0,0.2);
+        filter:${badge.earned ? 'none' : 'grayscale(1)'};
       ">
-        <span style="transform:rotate(45deg);font-size:14px;line-height:1">${emoji}</span>
+        <img src="${badge.image}" style="width:26px;height:26px;object-fit:contain" alt="${badge.name}" />
+        ${badge.earned ? `<span style="position:absolute;top:-4px;right:-4px;background:#10b981;color:white;border-radius:50%;width:14px;height:14px;font-size:8px;display:flex;align-items:center;justify-content:center;">✓</span>` : ''}
       </div>`,
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -36],
+    iconSize: [44, 44],
+    iconAnchor: [22, 44],
+    popupAnchor: [0, -48],
   });
 }
 
-// Fix Leaflet's missing default icon assets in Vite
 function FixLeafletIcons() {
   useEffect(() => {
     delete L.Icon.Default.prototype._getIconUrl;
@@ -46,7 +44,7 @@ function FixLeafletIcons() {
   return null;
 }
 
-function Map() {
+function Map({ badges = [], onBadgeClick }) {
   return (
     <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-2xl">
       <FixLeafletIcons />
@@ -62,14 +60,29 @@ function Map() {
         scrollWheelZoom={true}
         style={{ height: '100%', width: '100%' }}
       >
-        {/* OSM tiles */}
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
-
-        {/* Custom zoom control bottom-right */}
         <ZoomControl position="bottomright" />
+
+        {/* Badge markers */}
+        {badges.map((badge) => (
+          <Marker
+            key={`badge-${badge.id}`}
+            position={[badge.location.latitude, badge.location.longitude]}
+            icon={makeBadgeMarkerIcon(badge)}
+          >
+            <Popup>
+              <div
+                style={{ fontFamily: "'Nunito', sans-serif", minWidth: 160, textAlign: 'center' }}
+              >
+                <BadgeIcon badge={badge} onClick={() => onBadgeClick?.(badge)} />
+                <p style={{ marginTop: 6, fontSize: 11, color: '#6b7280' }}>{badge.activity}</p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
 
       {/* Title overlay */}
@@ -79,22 +92,24 @@ function Map() {
       >
         <span className="text-sm font-black text-emerald-800">🌴 La Réunion</span>
       </div>
+
+      {/* Badge legend */}
+      <div
+        className="absolute bottom-12 left-4 z-[1000] rounded-2xl bg-white/90 px-3 py-2 shadow-lg backdrop-blur-sm"
+        style={{ fontFamily: "'Nunito', sans-serif" }}
+      >
+        <p className="mb-1 text-[10px] font-black uppercase tracking-wide text-gray-500">Badges</p>
+        <div className="flex gap-2 text-[10px]">
+          <span className="flex items-center gap-1">
+            <span className="inline-block h-2 w-2 rounded-full bg-amber-400" /> Obtenu
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="inline-block h-2 w-2 rounded-full bg-gray-300" /> Verrouillé
+          </span>
+        </div>
+      </div>
     </div>
   );
-}
-
-/**
- * Convert normalized [0,1] POI coords back to real lat/lng.
- * nx/ny were defined relative to the island bounding box.
- */
-function poiToLatLng(poi) {
-  const latMin = -21.42,
-    latMax = -20.81;
-  const lngMin = 55.2,
-    lngMax = 55.88;
-  const lat = latMax - poi.ny * (latMax - latMin);
-  const lng = lngMin + poi.nx * (lngMax - lngMin);
-  return [lat, lng];
 }
 
 export default Map;
