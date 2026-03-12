@@ -1,5 +1,26 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-terre: #2D4A2D;
+  --color-mousse: #4A7A4A;
+  --color-feuille: #7AB87A;
+  --color-brume: #B8D4B8;
+  --color-sable: #F2EDE4;
+  --color-ocre: #C47A3A;
+  --color-corail: #D95F3B;
+  --color-nuit: #1A2A1A;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F2EDE4;
+  color: #1A2A1A;
+}
+
 .evolution-flash {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
   animation: flash 0.7s ease-out;

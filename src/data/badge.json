@@ -2,112 +2,42 @@
   "badges": [
     {
       "id": 1,
-      "name": "Activité 1",
+      "name": "Première connexion",
       "activity": "User logs in for the first time",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
+      "location": { "latitude": -20.8823, "longitude": 55.4504 },
       "earned": true
     },
     {
       "id": 2,
-      "name": "Activité 2",
-      "activity": "User completes their profile",
+      "name": "Explorateur",
+      "activity": "User visits 5 different locations",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
+      "location": { "latitude": -21.0922, "longitude": 55.6197 },
       "earned": true
     },
     {
       "id": 3,
-      "name": "Activité 3",
-      "activity": "User creates their first post",
+      "name": "Randonneur",
+      "activity": "User completes a hiking trail",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
+      "location": { "latitude": -21.0997, "longitude": 55.4789 },
       "earned": false
     },
     {
       "id": 4,
-      "name": "Activité 4",
-      "activity": "User visits 10 pages",
+      "name": "Volcanologue",
+      "activity": "User visits the Piton de la Fournaise",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      "earned": false
+      "location": { "latitude": -21.2444, "longitude": 55.7089 },
+      "earned": true
     },
     {
       "id": 5,
-      "name": "Activité 5",
-      "activity": "User answers a question",
+      "name": "Plongeur",
+      "activity": "User completes a diving session",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      "earned": false
-    },
-    {
-      "id": 6,
-      "name": "Activité 6",
-      "activity": "User adds 5 friends",
-      "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      "earned": true
-    },
-    {
-      "id": 7,
-      "name": "Activité 7",
-      "activity": "User uploads content",
-      "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      "earned": false
-    },
-    {
-      "id": 8,
-      "name": "Activité 8",
-      "activity": "User completes all main activities",
-      "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      "earned": false
-    },
-    {
-      "id": 9,
-      "name": "Activité 9",
-      "activity": "User completes all main activities",
-      "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      "earned": true
-    },
-    {
-      "id": 10,
-      "name": "Activité 10",
-      "activity": "User completes all main activities",
-      "image": "https://www.svgrepo.com/show/228696/badge.svg",
-      "location": {
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
+      "location": { "latitude": -21.0244, "longitude": 55.2344 },
       "earned": false
     }
   ]
