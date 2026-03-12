@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import quiz_data from "./quiz_data";
+import { useState, useEffect, useCallback } from "react";
+import quiz_data from "../../public/data/quiz_data";
 
 const QUESTION_COUNT = 20;
 

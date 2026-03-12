@@ -21,6 +21,21 @@ body {
   color: #1a2a1a;
 }
 
+.mace-popup .leaflet-popup-content-wrapper {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.mace-popup .leaflet-popup-content {
+  margin: 0;
+}
+
+.mace-popup .leaflet-popup-tip {
+  background: transparent;
+  box-shadow: none;
+}
+
 .evolution-flash {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
   animation: flash 0.7s ease-out;

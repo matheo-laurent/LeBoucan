@@ -1,4 +1,4 @@
-import story from "../../mace.json";
+import story from "/data/story.json";
 
 export default function StoryTelling({ id }) {
 

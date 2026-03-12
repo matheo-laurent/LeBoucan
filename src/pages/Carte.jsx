@@ -5,7 +5,7 @@ import BadgeIcon from '../components/BadgeIcon.jsx';
 import { drawCompanion } from '../components/companionDrawer.jsx';
 import badgesData from '../data/badge.json';
 
-const COMPANION_ENTITY = 'dodo';
+const COMPANION_ENTITY = 'plant';
 const MAX_FORM = 4;
 
 const C = {

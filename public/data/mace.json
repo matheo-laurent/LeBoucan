@@ -1,5 +1,4 @@
-{
-  "projet": [
+[
     {
       "id": "1",
       "lat": -21.115,
@@ -310,5 +309,4 @@
       "geste_responsable": "Évitez de marcher sur les tombes en pierre de lave, elles sont très friables.",
       "experience_terroir": "Juste à côté, faites le marché de Saint-Paul (vendredi/samedi) pour soutenir l'agriculture locale."
     }
-  ]
-}
+]

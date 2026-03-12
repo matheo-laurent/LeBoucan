@@ -4,11 +4,12 @@ import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leafl
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import BadgeIcon from './BadgeIcon.jsx';
+import EventMarkers from './eventMarker.jsx';
 
 const REUNION_CENTER = [-21.115, 55.536];
 const REUNION_BOUNDS = [
-  [-21.42, 55.2],
-  [-20.81, 55.88],
+  [-21.85, 54.8],
+  [-20.5, 56.35],
 ];
 
 function makeBadgeMarkerIcon(badge) {
@@ -66,6 +67,8 @@ function Map({ badges = [], onBadgeClick }) {
         />
         <ZoomControl position="bottomright" />
 
+        <EventMarkers />
+
         {/* Badge markers */}
         {badges.map((badge) => (
           <Marker
@@ -73,7 +76,7 @@ function Map({ badges = [], onBadgeClick }) {
             position={[badge.location.latitude, badge.location.longitude]}
             icon={makeBadgeMarkerIcon(badge)}
           >
-            <Popup>
+            <Popup autoPan={true}>
               <div
                 style={{ fontFamily: "'Nunito', sans-serif", minWidth: 160, textAlign: 'center' }}
               >
