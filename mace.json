@@ -1,25 +1,26 @@
 {
-  "projet1": {
-    "id": "0",
-    "lat": -21.115,
-    "lon": 55.536,
-    "nom": "Grand-mère Kal",
-    "description": "Personnage légendaire de l'île...",
-    "histoire_engagee": "Elle incarne la mémoire orale de l'esclavage et la peur des 'voleurs d'enfants', un pont entre le monde visible et invisible.",
-    "geste_responsable": "Respectez les lieux de culte populaires (petites chapelles rouges) sans déplacer les offrandes.",
-    "experience_terroir": "Écoutez un conteur local lors d'un 'Fonn'kèr' pour comprendre l'âme créole."
-  },
-  "projet2": {
-    "id": "1",
-    "lat": -21.041,
-    "lon": 55.271,
-    "nom": "La Buse",
-    "description": "Le pirate Olivier Levasseur...",
-    "histoire_engagee": "Son trésor n'est pas que d'or ; il symbolise l'époque où La Réunion était un carrefour stratégique des routes maritimes mondiales.",
-    "geste_responsable": "Ne gravez rien sur les pierres ou les arbres autour des sites historiques.",
-    "experience_terroir": "Visitez une distillerie artisanale pour comprendre l'évolution de la canne, du sucre au rhum."
-  },
-  "projet3": {
+  "projet": [
+    {
+      "id": "1",
+      "lat": -21.115,
+      "lon": 55.536,
+      "nom": "Grand-mère Kal",
+      "description": "Personnage légendaire de l'île...",
+      "histoire_engagee": "Elle incarne la mémoire orale de l'esclavage et la peur des 'voleurs d'enfants', un pont entre le monde visible et invisible.",
+      "geste_responsable": "Respectez les lieux de culte populaires (petites chapelles rouges) sans déplacer les offrandes.",
+      "experience_terroir": "Écoutez un conteur local lors d'un 'Fonn'kèr' pour comprendre l'âme créole."
+    },
+    {
+      "id": "2",
+      "lat": -21.041,
+      "lon": 55.271,
+      "nom": "La Buse",
+      "description": "Le pirate Olivier Levasseur...",
+      "histoire_engagee": "Son trésor n'est pas que d'or ; il symbolise l'époque où La Réunion était un carrefour stratégique des routes maritimes mondiales.",
+      "geste_responsable": "Ne gravez rien sur les pierres ou les arbres autour des sites historiques.",
+      "experience_terroir": "Visitez une distillerie artisanale pour comprendre l'évolution de la canne, du sucre au rhum."
+    },
+  {
     "id": "3",
     "lat": -21.2425,
     "lon": 55.7089,
@@ -29,7 +30,7 @@
     "geste_responsable": "Restez strictement sur les sentiers balisés : la lave est friable et la flore pionnière (lichens) met des décennies à pousser.",
     "experience_terroir": "Prenez un guide de haute montagne local pour apprendre à lire les différentes coulées."
   },
-  "projet4": {
+  {
     "id": "4",
     "lat": -21.080,
     "lon": 55.410,
@@ -39,7 +40,7 @@
     "geste_responsable": "Rapportez impérativement tous vos déchets sur le littoral (zéro poubelle dans le cirque).",
     "experience_terroir": "Dégustez un carry cuit au feu de bois dans un gîte : le goût de la fumée est l'identité même de Mafate."
   },
-  "projet5": {
+  {
     "id": "5",
     "lat": -21.136,
     "lon": 55.472,
@@ -49,7 +50,7 @@
     "geste_responsable": "Évitez les douches trop longues ; l'eau est une ressource précieuse captée directement dans les remparts.",
     "experience_terroir": "Achetez les célèbres lentilles de Cilaos directement aux agriculteurs du village."
   },
-  "projet6": {
+  {
     "id": "6",
     "lat": -21.027,
     "lon": 55.516,
@@ -59,7 +60,7 @@
     "geste_responsable": "Ne cueillez pas les fleurs sauvages, beaucoup sont des espèces endémiques protégées.",
     "experience_terroir": "Goûtez au chouchou (christophine) décliné sous toutes ses formes : en gâteau, en gratin ou en confiture."
   },
-  "projet7": {
+  {
     "id": "7",
     "lat": -21.062,
     "lon": 55.517,
@@ -69,7 +70,7 @@
     "geste_responsable": "Privilégiez les parkings à l'entrée du village pour réduire la pollution sonore et visuelle.",
     "experience_terroir": "Visitez la Maison Folio pour comprendre l'usage médicinal des plantes du jardin créole."
   },
-  "projet8": {
+  {
     "id": "8",
     "lat": -21.081,
     "lon": 55.227,
@@ -79,7 +80,7 @@
     "geste_responsable": "Utilisez une crème solaire minérale (sans oxybenzone) pour ne pas empoisonner le corail.",
     "experience_terroir": "Pique-niquez sous les filaos comme les locaux, en utilisant de la vaisselle réutilisable."
   },
-  "projet9": {
+  {
     "id": "9",
     "lat": -21.052,
     "lon": 55.225,
@@ -89,7 +90,7 @@
     "geste_responsable": "Respectez les signalisations concernant le risque requin et ne dépassez pas les zones autorisées.",
     "experience_terroir": "Allez au port au retour des pêches pour acheter du poisson frais local."
   },
-  "projet10": {
+  {
     "id": "10",
     "lat": -21.296,
     "lon": 55.807,
@@ -99,7 +100,7 @@
     "geste_responsable": "Ne ramassez pas de scories ou de cristaux d'olivine (pierres vertes) pour préserver le paysage minéral.",
     "experience_terroir": "Faites une visite guidée des tunnels de lave pour comprendre ce qui se passe sous la surface."
   },
-  "projet11": {
+  {
     "id": "11",
     "lat": -21.069,
     "lon": 55.480,
@@ -109,7 +110,7 @@
     "geste_responsable": "Le Pétrel de Barau niche ici : ne faites pas de bruit la nuit et n'allumez pas de lumières fortes vers le ciel.",
     "experience_terroir": "Prévoyez un café 'la cuite' au sommet pour admirer le lever du soleil."
   },
-  "projet12": {
+  {
     "id": "12",
     "lat": -21.060,
     "lon": 55.370,
@@ -119,7 +120,7 @@
     "geste_responsable": "Évitez de nourrir les oiseaux (Tec-tec) pour ne pas perturber leur régime alimentaire sauvage.",
     "experience_terroir": "Discutez avec les habitants de Dos d'Âne, village spécialisé dans la culture du thym et des herbes aromatiques."
   },
-  "projet13": {
+  {
     "id": "13",
     "lat": -21.055,
     "lon": 55.368,
@@ -129,7 +130,7 @@
     "geste_responsable": "Ne tentez pas d'extraire les cristaux de la roche : ils perdent leur éclat une fois retirés de leur environnement.",
     "experience_terroir": "Observez la flore de 'haute altitude' qui s'accroche aux parois escarpées."
   },
-  "projet14": {
+  {
     "id": "14",
     "lat": -21.075,
     "lon": 55.330,
@@ -139,7 +140,7 @@
     "geste_responsable": "Attention au feu : la forêt de tamarins des hauts est extrêmement inflammable. Zéro cigarette.",
     "experience_terroir": "Visitez les alambics de géranium au pied de la route du Maïdo pour découvrir l'huile essentielle locale."
   },
-  "projet15": {
+  {
     "id": "15",
     "lat": -21.259,
     "lon": 55.333,
@@ -149,7 +150,7 @@
     "geste_responsable": "Ne vous baignez pas hors des zones surveillées, les courants de 'baïne' sont très dangereux ici.",
     "experience_terroir": "Mangez des 'bonbons piments' achetés aux camions-bars typiques du bord de mer."
   },
-  "projet16": {
+  {
     "id": "16",
     "lat": -20.909,
     "lon": 55.615,
@@ -159,7 +160,7 @@
     "geste_responsable": "Utilisez des produits lavants biodégradables si vous vous baignez pour ne pas polluer l'eau des cultures en aval.",
     "experience_terroir": "Observez les champs de canne à sucre environnants, poumon économique de la région Est."
   },
-  "projet17": {
+  {
     "id": "17",
     "lat": -21.030,
     "lon": 55.520,
@@ -169,7 +170,7 @@
     "geste_responsable": "Admirez-la depuis les points de vue prévus plutôt que de tenter des accès sauvages dangereux.",
     "experience_terroir": "Arrêtez-vous chez un artisan tresseur de paille chouchou dans le village de Salazie."
   },
-  "projet18": {
+  {
     "id": "18",
     "lat": -20.906,
     "lon": 55.616,
@@ -179,7 +180,7 @@
     "geste_responsable": "Soutenez la vanille locale certifiée 'Bourbon' plutôt que les imitations importées bon marché.",
     "experience_terroir": "Participez à un atelier de 'mariage' des fleurs si vous visitez pendant la saison de floraison."
   },
-  "projet19": {
+  {
     "id": "19",
     "lat": -21.060,
     "lon": 55.530,
@@ -189,7 +190,7 @@
     "geste_responsable": "Nettoyez vos chaussures avant d'entrer pour ne pas introduire de graines d'espèces invasives.",
     "experience_terroir": "Observez le travail des 'Tamariniers', les artisans qui utilisent le bois de Tamarin des Hauts pour le mobilier précieux."
   },
-  "projet20": {
+  {
     "id": "20",
     "lat": -21.070,
     "lon": 55.535,
@@ -199,7 +200,7 @@
     "geste_responsable": "Ne jetez rien dans le vide, les écosystèmes au fond du canyon sont inaccessibles et donc impossibles à nettoyer.",
     "experience_terroir": "Si vous n'y allez pas à pied, privilégiez les opérateurs d'hélicoptère engagés dans la réduction des nuisances sonores."
   },
-  "projet21": {
+  {
     "id": "21",
     "lat": -21.170,
     "lon": 55.288,
@@ -209,7 +210,7 @@
     "geste_responsable": "Visitez Kélonia pour comprendre pourquoi il ne faut jamais toucher une tortue en mer.",
     "experience_terroir": "Allez au marché artisanal pour découvrir le travail de la roche volcanique sculptée."
   },
-  "projet22": {
+  {
     "id": "22",
     "lat": -21.187,
     "lon": 55.829,
@@ -219,7 +220,7 @@
     "geste_responsable": "Ne touchez pas aux racines des palmiers, cela les fragilise face aux cyclones.",
     "experience_terroir": "Goûtez au chou de vacoa, un produit rare et délicat préparé par les restaurateurs du site."
   },
-  "projet23": {
+  {
     "id": "23",
     "lat": -21.215,
     "lon": 55.600,
@@ -229,7 +230,7 @@
     "geste_responsable": "Ne sortez pas de la piste avec votre véhicule, les traces de pneus durent des années sur ce sol fragile.",
     "experience_terroir": "Faites une pause à la Cité du Volcan à la Plaine des Cafres pour comprendre la formation de ce site."
   },
-  "projet24": {
+  {
     "id": "24",
     "lat": -21.242,
     "lon": 55.687,
@@ -239,7 +240,7 @@
     "geste_responsable": "Prévoyez des vêtements chauds et de l'eau : la météo peut changer en 10 minutes à cette altitude.",
     "experience_terroir": "Échangez avec les guides locaux sur l'histoire de Jacob et la découverte de l'enclos."
   },
-  "projet25": {
+  {
     "id": "25",
     "lat": -21.137,
     "lon": 55.473,
@@ -249,7 +250,7 @@
     "geste_responsable": "Soutenez l'établissement thermal public qui maintient cette tradition de santé pour tous.",
     "experience_terroir": "Combinez votre soin thermal avec une dégustation de vin de Cilaos (cépage Isabelle)."
   },
-  "projet26": {
+  {
     "id": "26",
     "lat": -21.170,
     "lon": 55.290,
@@ -259,7 +260,7 @@
     "geste_responsable": "Prenez le temps de lire la section sur l'engagisme pour comprendre d'où viennent les différentes cultures de l'île.",
     "experience_terroir": "Achetez du sucre 'galabé', un sucre brut artisanal presque disparu."
   },
-  "projet27": {
+  {
     "id": "27",
     "lat": -21.128,
     "lon": 55.797,
@@ -269,7 +270,7 @@
     "geste_responsable": "Ramassez les déchets plastiques ramenés par la mer sur la côte sauvage.",
     "experience_terroir": "Rencontrez les pêcheurs de bichiques (alevin de luxe) à l'embouchure des rivières."
   },
-  "projet28": {
+  {
     "id": "28",
     "lat": -21.135,
     "lon": 55.797,
@@ -278,35 +279,36 @@
     "histoire_engagee": "En 1977, la lave a encerclé l'église sans la brûler. C'est le symbole de la résilience et de la foi locale.",
     "geste_responsable": "L'église est un lieu de culte actif, évitez les photos pendant les offices.",
     "experience_terroir": "Soutenez les petits vendeurs d'artisanat devant l'église (objets en lave)."
-  },
-  "projet29": {
-    "id": "29",
-    "lat": -20.8823,
-    "lon": 55.4504,
-    "nom": "Saint-Denis",
-    "description": "Chef-lieu de l'île...",
-    "histoire_engagee": "Une capitale à taille humaine où mosquées, églises et temples chinois cohabitent dans la même rue.",
-    "geste_responsable": "Privilégiez les déplacements à pied ou en transport en commun (Citalis) pour visiter le centre historique.",
-    "experience_terroir": "Dégustez un 'pain bouchon gratiné' dans un snack de la rue de Paris."
-  },
-  "projet30": {
-    "id": "30",
-    "lat": -20.877,
-    "lon": 55.454,
-    "nom": "Jardin de l'État",
-    "description": "Jardin botanique historique...",
-    "histoire_engagee": "Ancien jardin d'acclimatation des plantes venues du monde entier pour enrichir les colonies.",
-    "geste_responsable": "Ne montez pas sur les arbres centenaires et restez sur les allées pour protéger les racines.",
-    "experience_terroir": "Visitez le Muséum d'Histoire Naturelle situé à l'intérieur du jardin."
-  },
-  "projet31": {
-    "id": "2",
-    "lat": -21.009,
-    "lon": 55.270,
-    "nom": "Cimetière marin de Saint-Paul",
-    "description": "Cimetière historique en bord de mer...",
-    "histoire_engagee": "Ici reposent des poètes, des pirates et des oubliés de l'histoire, face à l'océan qui les a amenés ici.",
-    "geste_responsable": "Évitez de marcher sur les tombes en pierre de lave, elles sont très friables.",
-    "experience_terroir": "Juste à côté, faites le marché de Saint-Paul (vendredi/samedi) pour soutenir l'agriculture locale."
-  }
+    },
+    {
+      "id": "29",
+      "lat": -20.8823,
+      "lon": 55.4504,
+      "nom": "Saint-Denis",
+      "description": "Chef-lieu de l'île...",
+      "histoire_engagee": "Une capitale à taille humaine où mosquées, églises et temples chinois cohabitent dans la même rue.",
+      "geste_responsable": "Privilégiez les déplacements à pied ou en transport en commun (Citalis) pour visiter le centre historique.",
+      "experience_terroir": "Dégustez un 'pain bouchon gratiné' dans un snack de la rue de Paris."
+    },
+    {
+      "id": "30",
+      "lat": -20.877,
+      "lon": 55.454,
+      "nom": "Jardin de l'État",
+      "description": "Jardin botanique historique...",
+      "histoire_engagee": "Ancien jardin d'acclimatation des plantes venues du monde entier pour enrichir les colonies.",
+      "geste_responsable": "Ne montez pas sur les arbres centenaires et restez sur les allées pour protéger les racines.",
+      "experience_terroir": "Visitez le Muséum d'Histoire Naturelle situé à l'intérieur du jardin."
+    },
+    {
+      "id": "31",
+      "lat": -21.009,
+      "lon": 55.270,
+      "nom": "Cimetière marin de Saint-Paul",
+      "description": "Cimetière historique en bord de mer...",
+      "histoire_engagee": "Ici reposent des poètes, des pirates et des oubliés de l'histoire, face à l'océan qui les a amenés ici.",
+      "geste_responsable": "Évitez de marcher sur les tombes en pierre de lave, elles sont très friables.",
+      "experience_terroir": "Juste à côté, faites le marché de Saint-Paul (vendredi/samedi) pour soutenir l'agriculture locale."
+    }
+  ]
 }
