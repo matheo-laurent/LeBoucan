@@ -6,9 +6,7 @@ function BadgeIcon({ badge, onClick }) {
       {/* Badge circle */}
       <div
         className={`relative flex h-14 w-14 items-center justify-center rounded-full border-4 shadow-lg ${
-          badge.earned
-            ? 'border-amber-400 bg-amber-50'
-            : 'border-gray-300 bg-gray-100 grayscale'
+          badge.earned ? 'border-amber-400 bg-amber-50' : 'border-gray-300 bg-gray-100 grayscale'
         }`}
       >
         <img src={badge.image} alt={badge.name} className="h-8 w-8 object-contain" />

@@ -74,7 +74,9 @@ function Map({ badges = [], onBadgeClick }) {
             icon={makeBadgeMarkerIcon(badge)}
           >
             <Popup>
-              <div style={{ fontFamily: "'Nunito', sans-serif", minWidth: 160, textAlign: 'center' }}>
+              <div
+                style={{ fontFamily: "'Nunito', sans-serif", minWidth: 160, textAlign: 'center' }}
+              >
                 <BadgeIcon badge={badge} onClick={() => onBadgeClick?.(badge)} />
                 <p style={{ marginTop: 6, fontSize: 11, color: '#6b7280' }}>{badge.activity}</p>
               </div>

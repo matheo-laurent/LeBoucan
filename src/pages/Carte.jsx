@@ -9,14 +9,14 @@ const COMPANION_ENTITY = 'dodo';
 const MAX_FORM = 4;
 
 const C = {
-  terre:   '#2D4A2D',
-  mousse:  '#4A7A4A',
+  terre: '#2D4A2D',
+  mousse: '#4A7A4A',
   feuille: '#7AB87A',
-  brume:   '#B8D4B8',
-  sable:   '#F2EDE4',
-  ocre:    '#C47A3A',
-  corail:  '#D95F3B',
-  nuit:    '#1A2A1A',
+  brume: '#B8D4B8',
+  sable: '#F2EDE4',
+  ocre: '#C47A3A',
+  corail: '#D95F3B',
+  nuit: '#1A2A1A',
 };
 
 // ── Activity Modal ──────────────────────────────────────────────────────────
@@ -93,10 +93,14 @@ function BadgesSummary({ badges }) {
         >
           Badges
         </p>
-        <p className="mt-0.5 text-3xl font-bold" style={{ color: C.terre, fontFamily: "'Playfair Display', serif" }}>
+        <p
+          className="mt-0.5 text-3xl font-bold"
+          style={{ color: C.terre, fontFamily: "'Playfair Display', serif" }}
+        >
           {earned}
           <span className="text-base font-normal" style={{ color: C.nuit, opacity: 0.45 }}>
-            {' '}/ {badges.length}
+            {' '}
+            / {badges.length}
           </span>
         </p>
       </div>
@@ -135,7 +139,10 @@ function BadgesSummary({ badges }) {
               </p>
               <p
                 className="text-[10px]"
-                style={{ fontFamily: "'Space Mono', monospace", color: badge.earned ? C.mousse : C.brume }}
+                style={{
+                  fontFamily: "'Space Mono', monospace",
+                  color: badge.earned ? C.mousse : C.brume,
+                }}
               >
                 {badge.earned ? '✓ Obtenu' : '🔒 Verrouillé'}
               </p>
@@ -226,9 +233,7 @@ function Carte() {
   const [selectedBadge, setSelectedBadge] = useState(null);
 
   const handleEarn = () => {
-    setBadges((prev) =>
-      prev.map((b) => (b.id === selectedBadge.id ? { ...b, earned: true } : b)),
-    );
+    setBadges((prev) => prev.map((b) => (b.id === selectedBadge.id ? { ...b, earned: true } : b)));
     setCompanionForm((prev) => Math.min(prev + 1, MAX_FORM));
     setSelectedBadge(null);
   };

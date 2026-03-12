@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-terre: #2D4A2D;
-  --color-mousse: #4A7A4A;
-  --color-feuille: #7AB87A;
-  --color-brume: #B8D4B8;
-  --color-sable: #F2EDE4;
-  --color-ocre: #C47A3A;
-  --color-corail: #D95F3B;
-  --color-nuit: #1A2A1A;
+  --color-terre: #2d4a2d;
+  --color-mousse: #4a7a4a;
+  --color-feuille: #7ab87a;
+  --color-brume: #b8d4b8;
+  --color-sable: #f2ede4;
+  --color-ocre: #c47a3a;
+  --color-corail: #d95f3b;
+  --color-nuit: #1a2a1a;
 
   --font-display: 'Playfair Display', serif;
   --font-body: 'DM Sans', sans-serif;
@@ -17,8 +17,8 @@
 
 body {
   font-family: var(--font-body);
-  background-color: #F2EDE4;
-  color: #1A2A1A;
+  background-color: #f2ede4;
+  color: #1a2a1a;
 }
 
 .evolution-flash {
