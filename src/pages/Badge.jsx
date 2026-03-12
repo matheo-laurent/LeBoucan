@@ -1,9 +1,9 @@
 import data from '../data/badge.json';
-import { BadgeCard } from './badge-card.jsx';
-import { BadgeDesc } from './badge-description.jsx';
+import { BadgeCard } from '../components/badge-card.jsx';
+import { BadgeDesc } from '../components/badge-description.jsx';
 import { useState } from 'react';
 
-export function Badge() {
+export default function Badge() {
   const badgesData = data.badges;
   const [selectedBadge, setSelectedBadge] = useState(null);
 
