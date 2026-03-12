@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 // Réunion Island center + tight bounds
 const REUNION_CENTER = [-21.115, 55.536];
 const REUNION_BOUNDS = [
-  [-21.42, 55.20], // SW
+  [-21.42, 55.2], // SW
   [-20.81, 55.88], // NE
 ];
 
@@ -108,8 +108,10 @@ function Map() {
  * nx/ny were defined relative to the island bounding box.
  */
 function poiToLatLng(poi) {
-  const latMin = -21.42, latMax = -20.81;
-  const lngMin = 55.20, lngMax = 55.88;
+  const latMin = -21.42,
+    latMax = -20.81;
+  const lngMin = 55.2,
+    lngMax = 55.88;
   const lat = latMax - poi.ny * (latMax - latMin);
   const lng = lngMin + poi.nx * (lngMax - lngMin);
   return [lat, lng];
