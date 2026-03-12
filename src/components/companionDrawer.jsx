@@ -1,7 +1,7 @@
-import plant1 from "../assets/plants/plant_1.svg";
-import plant2 from "../assets/plants/plant_2.svg";
-import plant3 from "../assets/plants/plant_3.svg";
-import plant4 from "../assets/plants/plant_4.svg";
+import plant1 from "../assets/plants/plant_1.png";
+import plant2 from "../assets/plants/plant_2.png";
+import plant3 from "../assets/plants/plant_3.png";
+import plant4 from "../assets/plants/plant_4.png";
 
 export function drawCompanion(entity, form) {
   switch (entity) {

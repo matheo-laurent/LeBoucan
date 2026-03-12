@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
 
   const tabs = [
-    { name: "Carte", path: "/map" },
+    { name: "Exploration", path: "/map" },
     { name: "Missions", path: "/missions" },
-    { name: "Badges", path: "/badges" },
-    { name: "Companion", path: "/plant" }
+    { name: "Mes badges", path: "/badges" },
+    { name: "Mon Macébuddy", path: "/plant" }
   ];
 
   return (

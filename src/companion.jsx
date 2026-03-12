@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import {drawCompanion} from "./components/CompanionDrawer.jsx";
+import {drawCompanion} from "./components/companionDrawer.jsx";
 
 class Companion {
   constructor(lvl = 1, entity = "plant", form = 1) {
