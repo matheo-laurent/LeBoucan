@@ -11,28 +11,6 @@ const REUNION_BOUNDS = [
   [-20.81, 55.88], // NE
 ];
 
-// Build a custom emoji marker for each POI type
-function makeIcon(emoji, color) {
-  return L.divIcon({
-    className: '',
-    html: `
-      <div style="
-        background:${color};
-        width:32px;height:32px;
-        border-radius:50% 50% 50% 0;
-        transform:rotate(-45deg);
-        border:2px solid white;
-        box-shadow:0 2px 6px rgba(0,0,0,0.25);
-        display:flex;align-items:center;justify-content:center;
-      ">
-        <span style="transform:rotate(45deg);font-size:14px;line-height:1">${emoji}</span>
-      </div>`,
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -36],
-  });
-}
-
 // Fix Leaflet's missing default icon assets in Vite
 function FixLeafletIcons() {
   useEffect(() => {
@@ -81,20 +59,6 @@ function Map() {
       </div>
     </div>
   );
-}
-
-/**
- * Convert normalized [0,1] POI coords back to real lat/lng.
- * nx/ny were defined relative to the island bounding box.
- */
-function poiToLatLng(poi) {
-  const latMin = -21.42,
-    latMax = -20.81;
-  const lngMin = 55.2,
-    lngMax = 55.88;
-  const lat = latMax - poi.ny * (latMax - latMin);
-  const lng = lngMin + poi.nx * (lngMax - lngMin);
-  return [lat, lng];
 }
 
 export default Map;

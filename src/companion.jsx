@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { drawCompanion } from "./components/CompanionDrawer.jsx";
-import Navbar from "./components/Navbar.jsx"
+import { drawCompanion } from "./components/companionDrawer.jsx";
 
 function Plant() {
   const [evolving, setEvolving] = useState(false);
@@ -51,7 +50,6 @@ function Plant() {
 
   return (
 <div className="pt-16 min-h-screen flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-[#81a4cd] to-[#d8d1d2]">
-    <Navbar />
   {/* Carte centrale */}
   <div className="relative bg-white/90 backdrop-blur-lg shadow-2xl rounded-3xl p-8 w-[360px] flex flex-col items-center gap-4">
 

@@ -3,14 +3,13 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
 
   const tabs = [
-    { name: "Exploration", path: "/map" },
-    { name: "Missions", path: "/missions" },
+    { name: "Carte", path: "/" },
     { name: "Mes badges", path: "/badges" },
     { name: "Mon Macébuddy", path: "/plant" }
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full flex justify-center bg-[#304966] border-b-4 border-[#0360a3] z-50">
+    <div className="fixed top-0 left-0 w-full flex justify-center bg-[#304966] border-b-4 border-[#0360a3] z-1000">
 
       <div className="flex gap-2 pt-3">
 
