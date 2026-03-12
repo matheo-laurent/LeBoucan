@@ -3,7 +3,7 @@ import { BadgeCard } from '../components/badge-card.jsx';
 import { BadgeDesc } from '../components/badge-description.jsx';
 import { useState } from 'react';
 
-export  default function Badge() {
+export default function Badge() {
   const badgesData = data.badges;
   const [selectedBadge, setSelectedBadge] = useState(null);
 
