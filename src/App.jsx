@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Plant from "./plant.jsx";
+import Plant from "./companion.jsx";
 
 function App() {
   return (
