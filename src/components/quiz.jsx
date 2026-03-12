@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import quiz_data from "../../public/data/quiz_data";
+import { useState, useEffect, useCallback } from 'react';
+import quiz_data from '../../public/data/quiz_data';
 
 const QUESTION_COUNT = 20;
 
@@ -56,10 +56,10 @@ const Quiz = ({ onClose }) => {
   };
 
   const getOptionClass = (option) => {
-    if (!hasAnswered) return "option";
-    if (option === questions[currentIndex].reponse_correcte) return "option correct";
-    if (option === selectedAnswer) return "option incorrect";
-    return "option";
+    if (!hasAnswered) return 'option';
+    if (option === questions[currentIndex].reponse_correcte) return 'option correct';
+    if (option === selectedAnswer) return 'option incorrect';
+    return 'option';
   };
 
   if (questions.length === 0) return <div>Chargement...</div>;
@@ -106,12 +106,10 @@ const Quiz = ({ onClose }) => {
       {hasAnswered && (
         <div className="quiz-feedback">
           {selectedAnswer === currentQuestion.reponse_correcte
-            ? "✅ Bonne réponse !"
+            ? '✅ Bonne réponse !'
             : `❌ Mauvaise réponse. La bonne réponse était : ${currentQuestion.reponse_correcte}`}
           <button onClick={handleNext}>
-            {currentIndex + 1 >= questions.length
-              ? "Voir les résultats"
-              : "Question suivante"}
+            {currentIndex + 1 >= questions.length ? 'Voir les résultats' : 'Question suivante'}
           </button>
         </div>
       )}

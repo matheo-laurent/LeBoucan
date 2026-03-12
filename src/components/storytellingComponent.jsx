@@ -1,7 +1,6 @@
-import story from "/data/story.json";
+import story from '/data/story.json';
 
 export default function StoryTelling({ id }) {
-
   const lieu = story.find((s) => s.id == id);
 
   if (!lieu) {

@@ -56,7 +56,9 @@ function EventMarkers() {
               lon: Number(item.lon),
             }))
           : [];
-        setItems(normalized.filter((item) => Number.isFinite(item.lat) && Number.isFinite(item.lon)));
+        setItems(
+          normalized.filter((item) => Number.isFinite(item.lat) && Number.isFinite(item.lon)),
+        );
       })
       .catch(() => {
         if (!isMounted) return;

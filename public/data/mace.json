@@ -1,24 +1,24 @@
 [
-    {
-      "id": "1",
-      "lat": -21.115,
-      "lon": 55.536,
-      "nom": "Grand-mère Kal",
-      "description": "Personnage légendaire de l'île...",
-      "histoire_engagee": "Elle incarne la mémoire orale de l'esclavage et la peur des 'voleurs d'enfants', un pont entre le monde visible et invisible.",
-      "geste_responsable": "Respectez les lieux de culte populaires (petites chapelles rouges) sans déplacer les offrandes.",
-      "experience_terroir": "Écoutez un conteur local lors d'un 'Fonn'kèr' pour comprendre l'âme créole."
-    },
-    {
-      "id": "2",
-      "lat": -21.041,
-      "lon": 55.271,
-      "nom": "La Buse",
-      "description": "Le pirate Olivier Levasseur...",
-      "histoire_engagee": "Son trésor n'est pas que d'or ; il symbolise l'époque où La Réunion était un carrefour stratégique des routes maritimes mondiales.",
-      "geste_responsable": "Ne gravez rien sur les pierres ou les arbres autour des sites historiques.",
-      "experience_terroir": "Visitez une distillerie artisanale pour comprendre l'évolution de la canne, du sucre au rhum."
-    },
+  {
+    "id": "1",
+    "lat": -21.115,
+    "lon": 55.536,
+    "nom": "Grand-mère Kal",
+    "description": "Personnage légendaire de l'île...",
+    "histoire_engagee": "Elle incarne la mémoire orale de l'esclavage et la peur des 'voleurs d'enfants', un pont entre le monde visible et invisible.",
+    "geste_responsable": "Respectez les lieux de culte populaires (petites chapelles rouges) sans déplacer les offrandes.",
+    "experience_terroir": "Écoutez un conteur local lors d'un 'Fonn'kèr' pour comprendre l'âme créole."
+  },
+  {
+    "id": "2",
+    "lat": -21.041,
+    "lon": 55.271,
+    "nom": "La Buse",
+    "description": "Le pirate Olivier Levasseur...",
+    "histoire_engagee": "Son trésor n'est pas que d'or ; il symbolise l'époque où La Réunion était un carrefour stratégique des routes maritimes mondiales.",
+    "geste_responsable": "Ne gravez rien sur les pierres ou les arbres autour des sites historiques.",
+    "experience_terroir": "Visitez une distillerie artisanale pour comprendre l'évolution de la canne, du sucre au rhum."
+  },
   {
     "id": "3",
     "lat": -21.2425,
@@ -31,8 +31,8 @@
   },
   {
     "id": "4",
-    "lat": -21.080,
-    "lon": 55.410,
+    "lat": -21.08,
+    "lon": 55.41,
     "nom": "Cirque de Mafate",
     "description": "Cirque montagneux accessible uniquement à pied...",
     "histoire_engagee": "Terre de 'Marrons', Mafate est le symbole mondial de la liberté. Chaque habitant y est un gardien du patrimoine.",
@@ -102,7 +102,7 @@
   {
     "id": "11",
     "lat": -21.069,
-    "lon": 55.480,
+    "lon": 55.48,
     "nom": "Piton des Neiges",
     "description": "Le plus haut sommet de l'océan Indien...",
     "histoire_engagee": "Le père de l'île. Éteint depuis 12 000 ans, il a donné naissance à tout ce que vous voyez autour de vous.",
@@ -111,8 +111,8 @@
   },
   {
     "id": "12",
-    "lat": -21.060,
-    "lon": 55.370,
+    "lat": -21.06,
+    "lon": 55.37,
     "nom": "Cap Noir",
     "description": "Point de vue spectaculaire...",
     "histoire_engagee": "Une fenêtre ouverte sur le vide qui permet de réaliser l'immensité du travail de l'érosion.",
@@ -132,7 +132,7 @@
   {
     "id": "14",
     "lat": -21.075,
-    "lon": 55.330,
+    "lon": 55.33,
     "nom": "Le Maïdo",
     "description": "Belvédère sur Mafate...",
     "histoire_engagee": "Le balcon de l'île. C'est ici que l'on comprend pourquoi La Réunion est classée à l'UNESCO.",
@@ -161,8 +161,8 @@
   },
   {
     "id": "17",
-    "lat": -21.030,
-    "lon": 55.520,
+    "lat": -21.03,
+    "lon": 55.52,
     "nom": "Voile de la Mariée",
     "description": "Cascade célèbre de Salazie...",
     "histoire_engagee": "La légende raconte qu'elle est née des larmes d'un père dont la fille s'est jetée dans le précipice pour fuir un mariage forcé.",
@@ -181,8 +181,8 @@
   },
   {
     "id": "19",
-    "lat": -21.060,
-    "lon": 55.530,
+    "lat": -21.06,
+    "lon": 55.53,
     "nom": "Forêt de Bélouve",
     "description": "Forêt tropicale primaire...",
     "histoire_engagee": "Véritable musée végétal vivant, elle abrite des espèces de fougères et d'oiseaux qui n'existent nulle part ailleurs.",
@@ -191,7 +191,7 @@
   },
   {
     "id": "20",
-    "lat": -21.070,
+    "lat": -21.07,
     "lon": 55.535,
     "nom": "Trou de Fer",
     "description": "Canyon avec des chutes de 300m...",
@@ -201,7 +201,7 @@
   },
   {
     "id": "21",
-    "lat": -21.170,
+    "lat": -21.17,
     "lon": 55.288,
     "nom": "Saint-Leu",
     "description": "Haut lieu du parapente...",
@@ -222,7 +222,7 @@
   {
     "id": "23",
     "lat": -21.215,
-    "lon": 55.600,
+    "lon": 55.6,
     "nom": "Plaine des Sables",
     "description": "Paysage lunaire...",
     "histoire_engagee": "Vous marchez sur les cendres de l'ancien volcan. C'est le paysage le plus 'extraterrestre' de l'île.",
@@ -251,8 +251,8 @@
   },
   {
     "id": "26",
-    "lat": -21.170,
-    "lon": 55.290,
+    "lat": -21.17,
+    "lon": 55.29,
     "nom": "Musée Stella Matutina",
     "description": "Ancienne usine sucrière...",
     "histoire_engagee": "Le sucre a forgé la société réunionnaise, ses mixités et ses douleurs. Ce musée raconte l'ADN de l'île.",
@@ -278,35 +278,35 @@
     "histoire_engagee": "En 1977, la lave a encerclé l'église sans la brûler. C'est le symbole de la résilience et de la foi locale.",
     "geste_responsable": "L'église est un lieu de culte actif, évitez les photos pendant les offices.",
     "experience_terroir": "Soutenez les petits vendeurs d'artisanat devant l'église (objets en lave)."
-    },
-    {
-      "id": "29",
-      "lat": -20.8823,
-      "lon": 55.4504,
-      "nom": "Saint-Denis",
-      "description": "Chef-lieu de l'île...",
-      "histoire_engagee": "Une capitale à taille humaine où mosquées, églises et temples chinois cohabitent dans la même rue.",
-      "geste_responsable": "Privilégiez les déplacements à pied ou en transport en commun (Citalis) pour visiter le centre historique.",
-      "experience_terroir": "Dégustez un 'pain bouchon gratiné' dans un snack de la rue de Paris."
-    },
-    {
-      "id": "30",
-      "lat": -20.877,
-      "lon": 55.454,
-      "nom": "Jardin de l'État",
-      "description": "Jardin botanique historique...",
-      "histoire_engagee": "Ancien jardin d'acclimatation des plantes venues du monde entier pour enrichir les colonies.",
-      "geste_responsable": "Ne montez pas sur les arbres centenaires et restez sur les allées pour protéger les racines.",
-      "experience_terroir": "Visitez le Muséum d'Histoire Naturelle situé à l'intérieur du jardin."
-    },
-    {
-      "id": "31",
-      "lat": -21.009,
-      "lon": 55.270,
-      "nom": "Cimetière marin de Saint-Paul",
-      "description": "Cimetière historique en bord de mer...",
-      "histoire_engagee": "Ici reposent des poètes, des pirates et des oubliés de l'histoire, face à l'océan qui les a amenés ici.",
-      "geste_responsable": "Évitez de marcher sur les tombes en pierre de lave, elles sont très friables.",
-      "experience_terroir": "Juste à côté, faites le marché de Saint-Paul (vendredi/samedi) pour soutenir l'agriculture locale."
-    }
+  },
+  {
+    "id": "29",
+    "lat": -20.8823,
+    "lon": 55.4504,
+    "nom": "Saint-Denis",
+    "description": "Chef-lieu de l'île...",
+    "histoire_engagee": "Une capitale à taille humaine où mosquées, églises et temples chinois cohabitent dans la même rue.",
+    "geste_responsable": "Privilégiez les déplacements à pied ou en transport en commun (Citalis) pour visiter le centre historique.",
+    "experience_terroir": "Dégustez un 'pain bouchon gratiné' dans un snack de la rue de Paris."
+  },
+  {
+    "id": "30",
+    "lat": -20.877,
+    "lon": 55.454,
+    "nom": "Jardin de l'État",
+    "description": "Jardin botanique historique...",
+    "histoire_engagee": "Ancien jardin d'acclimatation des plantes venues du monde entier pour enrichir les colonies.",
+    "geste_responsable": "Ne montez pas sur les arbres centenaires et restez sur les allées pour protéger les racines.",
+    "experience_terroir": "Visitez le Muséum d'Histoire Naturelle situé à l'intérieur du jardin."
+  },
+  {
+    "id": "31",
+    "lat": -21.009,
+    "lon": 55.27,
+    "nom": "Cimetière marin de Saint-Paul",
+    "description": "Cimetière historique en bord de mer...",
+    "histoire_engagee": "Ici reposent des poètes, des pirates et des oubliés de l'histoire, face à l'océan qui les a amenés ici.",
+    "geste_responsable": "Évitez de marcher sur les tombes en pierre de lave, elles sont très friables.",
+    "experience_terroir": "Juste à côté, faites le marché de Saint-Paul (vendredi/samedi) pour soutenir l'agriculture locale."
+  }
 ]
