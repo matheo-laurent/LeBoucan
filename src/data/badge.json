@@ -5,6 +5,10 @@
       "name": "Activité 1",
       "activity": "User logs in for the first time",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": true
     },
     {
@@ -12,6 +16,10 @@
       "name": "Activité 2",
       "activity": "User completes their profile",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": true
     },
     {
@@ -19,6 +27,10 @@
       "name": "Activité 3",
       "activity": "User creates their first post",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": false
     },
     {
@@ -26,6 +38,10 @@
       "name": "Activité 4",
       "activity": "User visits 10 pages",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": false
     },
     {
@@ -33,6 +49,10 @@
       "name": "Activité 5",
       "activity": "User answers a question",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": false
     },
     {
@@ -40,6 +60,10 @@
       "name": "Activité 6",
       "activity": "User adds 5 friends",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": true
     },
     {
@@ -47,6 +71,10 @@
       "name": "Activité 7",
       "activity": "User uploads content",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": false
     },
     {
@@ -54,6 +82,10 @@
       "name": "Activité 8",
       "activity": "User completes all main activities",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": false
     },
     {
@@ -61,6 +93,10 @@
       "name": "Activité 9",
       "activity": "User completes all main activities",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": true
     },
     {
@@ -68,6 +104,10 @@
       "name": "Activité 10",
       "activity": "User completes all main activities",
       "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
       "earned": false
     }
   ]
