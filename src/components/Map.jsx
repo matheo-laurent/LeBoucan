@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leafl
 import { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-// import { POIS, POI_TYPE_COLORS } from '../data/map.js';
 
 // Réunion Island center + tight bounds
 const REUNION_CENTER = [-21.115, 55.536];
@@ -71,25 +70,6 @@ function Map() {
 
         {/* Custom zoom control bottom-right */}
         <ZoomControl position="bottomright" />
-
-        {/* POI markers */}
-        {/* {POIS.map((poi) => {
-          const color = POI_TYPE_COLORS[poi.type] ?? '#f59e0b';
-          const icon = makeIcon(poi.emoji, color);
-          const latLng = poiToLatLng(poi);
-
-          return (
-            <Marker key={poi.id} position={latLng} icon={icon}>
-              <Popup>
-                <div style={{ fontFamily: "'Nunito', sans-serif", minWidth: 140 }}>
-                  <div style={{ fontSize: 22 }}>{poi.emoji}</div>
-                  <div style={{ fontWeight: 900, fontSize: 14, marginTop: 4 }}>{poi.label}</div>
-                  <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>{poi.description}</div>
-                </div>
-              </Popup>
-            </Marker>
-          );
-        })} */}
       </MapContainer>
 
       {/* Title overlay */}
