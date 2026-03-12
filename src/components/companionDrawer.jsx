@@ -1,28 +1,28 @@
 // Plantes
-import plant1 from "../assets/plants/plant_1.png"; 
-import plant2 from "../assets/plants/plant_2.png";
-import plant3 from "../assets/plants/plant_3.png";
-import plant4 from "../assets/plants/plant_4.png";
+import plant1 from '../assets/plants/plant_1.png';
+import plant2 from '../assets/plants/plant_2.png';
+import plant3 from '../assets/plants/plant_3.png';
+import plant4 from '../assets/plants/plant_4.png';
 
 // Dodos
-import dodo1 from "../assets/dodos/dodo_1.png";
-import dodo2 from "../assets/dodos/dodo_2.png";
-import dodo3 from "../assets/dodos/dodo_3.png";
-import dodo4 from "../assets/dodos/dodo_4.png";
+import dodo1 from '../assets/dodos/dodo_1.png';
+import dodo2 from '../assets/dodos/dodo_2.png';
+import dodo3 from '../assets/dodos/dodo_3.png';
+import dodo4 from '../assets/dodos/dodo_4.png';
 
 // Tangue
-import tangue1 from "../assets/tangue/tangue_1.png";
-import tangue2 from "../assets/tangue/tangue_2.png";
-import tangue3 from "../assets/tangue/tangue_3.png";
-import tangue4 from "../assets/tangue/tangue_4.png";
+import tangue1 from '../assets/tangue/tangue_1.png';
+import tangue2 from '../assets/tangue/tangue_2.png';
+import tangue3 from '../assets/tangue/tangue_3.png';
+import tangue4 from '../assets/tangue/tangue_4.png';
 
 export function drawCompanion(entity, form) {
   switch (entity) {
-    case "plant":
+    case 'plant':
       return plantDrawer(form);
-    case "dodo":
+    case 'dodo':
       return dodoDrawer(form);
-    case "tangue":
+    case 'tangue':
       return tangueDrawer(form);
     default:
       return null;
