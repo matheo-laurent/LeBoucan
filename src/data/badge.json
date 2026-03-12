@@ -1,0 +1,75 @@
+{
+  "badges": [
+    {
+      "id": 1,
+      "name": "Activité 1",
+      "activity": "User logs in for the first time",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": true
+    },
+    {
+      "id": 2,
+      "name": "Activité 2",
+      "activity": "User completes their profile",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": true
+    },
+    {
+      "id": 3,
+      "name": "Activité 3",
+      "activity": "User creates their first post",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": false
+    },
+    {
+      "id": 4,
+      "name": "Activité 4",
+      "activity": "User visits 10 pages",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": false
+    },
+    {
+      "id": 5,
+      "name": "Activité 5",
+      "activity": "User answers a question",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": false
+    },
+    {
+      "id": 6,
+      "name": "Activité 6",
+      "activity": "User adds 5 friends",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": true
+    },
+    {
+      "id": 7,
+      "name": "Activité 7",
+      "activity": "User uploads content",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": false
+    },
+    {
+      "id": 8,
+      "name": "Activité 8",
+      "activity": "User completes all main activities",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": false
+    },
+    {
+      "id": 9,
+      "name": "Activité 9",
+      "activity": "User completes all main activities",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": true
+    },
+    {
+      "id": 10,
+      "name": "Activité 10",
+      "activity": "User completes all main activities",
+      "image": "https://www.svgrepo.com/show/228696/badge.svg",
+      "earned": false
+    }
+
+  ]
+}
