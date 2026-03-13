@@ -99,3 +99,27 @@ body {
     opacity: 0;
   }
 }
+
+.achievement-popup {
+  animation:
+    achievementIn 0.35s ease-out,
+    achievementOut 0.35s ease-in 1.85s forwards;
+}
+
+@keyframes achievementIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes achievementOut {
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+}

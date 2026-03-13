@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { drawCompanion } from './components/companionDrawer.jsx';
+import AchievementPopup from './components/AchievementPopup.jsx';
 
 function Plant() {
   const [evolving, setEvolving] = useState(false);
   const [editingName, setEditingName] = useState(false);
+  const [achievement, setAchievement] = useState(null);
 
   const [companion, setCompanion] = useState({
     lvl: 1,
@@ -17,6 +19,11 @@ function Plant() {
     if (lvl >= 5) return 3;
     if (lvl >= 2) return 2;
     return 1;
+  };
+
+  const showAchievement = (title, icon = '🏆') => {
+    setAchievement({ title, icon });
+    setTimeout(() => setAchievement(null), 2200);
   };
 
   const lvlUp = () => {
@@ -136,6 +143,12 @@ function Plant() {
           Gain d'XP ⭐
         </button>
       </div>
+
+      <AchievementPopup
+        title={achievement?.title}
+        icon={achievement?.icon}
+        subtitle="Succès débloqué"
+      />
     </div>
   );
 }
